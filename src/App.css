@@ -40,6 +40,7 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .card img {
@@ -193,7 +194,7 @@
   width: 100%;
   padding: 14px;
   color: white;
-  border: none;
+  border: 1px solid transparent;
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
@@ -206,6 +207,113 @@
   height: 18px;
   margin-right: 10px;
 }
+
+/* Отзывы */
+.reviewBox {
+  margin-bottom: 200px;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+}
+
+.review h3 {
+  color: #22262A;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 30px;
+  margin: 0 0 30px 0;
+}
+
+.review textarea {
+  border: 1px solid #E0DFDC;
+  border-radius: 2px;
+  height: 66px;
+  margin-bottom: 24px;
+  color: #22262A;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.review textarea::placeholder {
+  color: #22262A;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+
+}
+
+.review button {
+  background-color: white;
+  border: 1px solid #2068F8;
+  border-radius: 2px;
+  padding: 10px;
+  color: #2068F8;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  align-self: flex-end;
+  margin-bottom: 36px;
+  cursor: pointer;
+  width: 170px;
+}
+
+
+.reviewField {
+  padding: 38px 48px 50px;
+  background: #FFFFFF;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), -1px -1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  margin-bottom: 15px;
+}
+
+.reviewField .info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reviewField .info .user {
+  display: flex;
+  flex-grow: 1;
+}
+
+.reviewField .info .user img {
+  margin-right: 12px;
+}
+
+
+.reviewField .info .user .infoBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewField .info .user .infoBox .author {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+  margin: 0;
+}
+
+.reviewField .info .user .infoBox .rating {
+  margin: 0;
+}
+
+
+.reviewField .info .date {
+  margin: 0;
+}
+
+
+.reviewField .content .title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+}
+
 
 /* Разделитель */
 .divider {

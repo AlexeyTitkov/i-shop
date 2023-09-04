@@ -4,6 +4,7 @@ import rating from '../src/assets/img/rating.svg';
 import cartWhite from '../src/assets/img/cartWhite.svg';
 import arrow from '../src/assets/img/arrowBack.svg';
 import {Link, useParams} from "react-router-dom";
+import {Reviews} from "./Reviews";
 
 export const Product = () => {
 
@@ -20,6 +21,12 @@ export const Product = () => {
     })
   }, [])
 
+  const [isProductInCart, setIsProductInCart] = useState(false)
+
+  const addProductToCartHandler = () => {
+    alert('Product added to cart')
+    setIsProductInCart(true)
+  }
 
   return (
     <div>
@@ -32,25 +39,34 @@ export const Product = () => {
       {product === null ? (
         <h1>Loading...</h1>
       ) : (
-        <div className="product">
-          <img src={product.image} alt={`image ${product.title}`}/>
-          <div className="info">
-            <p className="title">{product.title}</p>
-            <p className="price">${product.price}</p>
-            <div className="rating">
-              <p>Rating: {product.rating ? product.rating.rate : 'N/A'}</p>
-              {product.rating && <img src={rating} alt=""/>}
+        <div>
+          <div className="product">
+            <img src={product.image} alt={`image ${product.title}`}/>
+            <div className="info">
+              <p className="title">{product.title}</p>
+              <p className="price">${product.price}</p>
+              <div className="rating">
+                <p>Rating: {product.rating ? product.rating.rate : 'N/A'}</p>
+                {product.rating && <img src={rating} alt=""/>}
+              </div>
+              <div className="category">
+                <span>Category: </span>
+                <p>{product.category}</p>
+              </div>
+              <p className="description">{product.description}</p>
+              <button
+                onClick={addProductToCartHandler}
+                style={{
+                  background: isProductInCart ? '#FFFFFF' : '#2068F8',
+                  color: isProductInCart ? '#2068F8' : '#FFFFFF',
+                  border: isProductInCart ? '1px solid #2068F8' : '1px solid transparent',
+                }}>
+                <img src={cartWhite} alt="cart image" />
+                {isProductInCart ? 'Go to cart' : 'Add to cart'}
+              </button>
             </div>
-            <div className="category">
-              <span>Category: </span>
-              <p>{product.category}</p>
-            </div>
-            <p className="description">{product.description}</p>
-            <button>
-              <img src={cartWhite} alt="cart image"/>
-              Add to cart
-            </button>
           </div>
+          <Reviews productId={productId} />
         </div>
       )}
     </div>
